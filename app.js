@@ -3,12 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
-var indexRouter = require('./server/routes/index');
-var usersRouter = require('./server/routes/users');
-var addRouter = require('./server/routes/add');
-var deleteRouter = require('./server/routes/delete');
-var updateRouter = require('./server/routes/update');
+var apiRouter = require('./server/routes/api');
 
 var app = express();
 
@@ -22,19 +17,21 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/api/users', usersRouter);
-app.use('/api/add', addRouter);
-app.use('/api/delete', deleteRouter);
-app.use('/api/update', updateRouter);
+/* GET home page. */
+app.get('/', function (req, res, next) {
+  res.render('index', { title: 'React / Express project' });
+});
+
+// Get API Routes
+app.use('/api', apiRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
