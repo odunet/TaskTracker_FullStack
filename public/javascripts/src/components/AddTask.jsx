@@ -1,31 +1,35 @@
 //Dependables
-import React from 'react';
+import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types'
+import {store} from '../store/todoStore'
 
 //Main component || // React fucntion based component 1
-const AddTask = ({ addTask, tasks }) => {
-    const [text, setText] = React.useState('')
-    const [day, setDay] = React.useState('')
-    const [time, setTime] = React.useState('')
-    const [daytime, setDayTime] = React.useState('')
-    const [reminder, setReminder] = React.useState(false)
+const AddTask = () => {
+    const [text, setText] = useState('')
+    const [day, setDay] = useState('')
+    const [time, setTime] = useState('')
+    const [daytime, setDayTime] = useState('')
+    const [reminder, setReminder] = useState(false)
+
+    const {state, dispatch} = useContext(store)
 
     const showDT = (e) => {
         e.preventDefault()
         let task = {
-            id: (tasks.length +1),
+            id: (state.length +1),
             text: text,
             day: daytime,
             reminder: reminder
         }    
-        //Send new task as function props to main app  
-        addTask(task);
 
         //Empty the fields
         setDay('');
         setTime('');
         setText('');
         setReminder(true);
+
+        dispatch({type: "Add_Todo", data: task})
+        
     }
 
     React.useEffect(() => {

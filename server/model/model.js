@@ -82,7 +82,6 @@ let Model = {
   get_task: function () {
     // access the collection from prosgress database. Name of table in DB is "persond"
     return new Promise((resolve, reject) => {
-      console.log('Error Here!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
       client_A.query('SELECT * FROM travesty_task', (err, res) => {
         if (err) {
           reject(err);

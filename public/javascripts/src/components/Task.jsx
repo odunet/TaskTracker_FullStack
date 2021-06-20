@@ -1,10 +1,19 @@
 //Dependables
-import React from 'react';
 import PropTypes from 'prop-types'
 import {FaTimes} from 'react-icons/fa'
+import React, { useState, useContext } from 'react';
+import {store} from '../store/todoStore'
 
 //Main component || // React fucntion based component 1
-const Task = ( {task_ , onDelete, doubleClick} ) => {
+const Task = ( {task_} ) => {
+
+    const {state, dispatch} = useContext(store)
+    const onDelete = (id) => {
+     dispatch({type: "Delete_Todo", data: id})
+    }
+    const doubleClick = (id) => {
+     dispatch({type: "Change_Reminder", data: id})
+    }
 
     const switchColor = (event) => {
         if (event.target.parentNode.style.color == "red"){

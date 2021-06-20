@@ -1,14 +1,17 @@
 //Dependables
-import React from 'react';
+import React, { useContext } from 'react';
+import { store } from '../store/todoStore';
 import PropTypes from 'prop-types'
 import Task from './Task'
 
 //Main component || // React fucntion based component 1
-const Tasks = ( {tasks, onDelete, doubleClick} ) => {
+const Tasks = () => {
+    const { state, dispatch } = useContext(store);
+
     return (
       <div>
-          {tasks.map((task,i) => 
-            <Task key={task.id} doubleClick={doubleClick} task_={task} onDelete={onDelete}/>
+          {state.map((task,i) => 
+            <Task key={task.id} task_={task}/>
           )}              
       </div>
     );

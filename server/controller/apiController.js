@@ -1,5 +1,5 @@
-var { Model, client_A } = require('../model/model');
-const validation = require('../helper/validation');
+let { Model, client_A } = require('../model/model');
+let validation = require('../helper/validation');
 
 //Add to the list of users (Method: POST)
 function addUser(req, res, next) {
