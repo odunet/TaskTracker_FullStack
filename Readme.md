@@ -1,4 +1,4 @@
-# Task Tracker (Travesty Task Tracker Clone) - NodeJS | Express | PostgreSQL | ReactJS
+# Task Tracker (Travesty Task Tracker Clone) - NodeJS | Express | PostgreSQL | ReactJS (Global State Implementtion using Context API)
 
 ![Page Snapshot](./public/images/task_snap.PNG)
 
