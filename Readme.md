@@ -1,4 +1,4 @@
-# Task Tracker (Travesty Task Tracker Clone) - NodeJS | Express | PostgreSQL | ReactJS (Global State Implementtion using Context API)
+# Task Tracker - ReactJS (Global State Implementtion using Context API) | Express | PostgreSQL |
 
 ![Page Snapshot](./public/images/task_snap.PNG)
 
@@ -29,3 +29,4 @@ $ npm start
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
+* Note original code from [T-Media]()
