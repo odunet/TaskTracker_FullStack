@@ -6,7 +6,9 @@
     "start": "node ./bin/www",
     "dev": "nodemon app.js",
     "build": "webpack --config webpack.config.js",
-    "watch": "webpack --progress -d --config webpack.config.js --watch"
+    "watch": "webpack --progress -d --config webpack.config.js --watch",
+    "prepare": "npm run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.12.1",
@@ -18,7 +20,7 @@
     "debug": "~2.6.9",
     "express": "^4.16.4",
     "express-handlebars": "^5.2.0",
-    "express-hbs": "^2.3.4",
+    "express-hbs": "^2.3.5",
     "hbs": "^4.0.6",
     "http-errors": "^1.6.3",
     "morgan": "^1.9.1",
@@ -27,7 +29,8 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-icons": "^4.1.0",
-    "webpack-cli": "^4.4.0"
+    "webpack-cli": "^4.4.0",
+    "@snyk/protect": "latest"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.10",
@@ -39,5 +42,6 @@
     "nodemon": "^2.0.7",
     "style-loader": "^2.0.0",
     "webpack": "^5.16.0"
-  }
+  },
+  "snyk": true
 }
